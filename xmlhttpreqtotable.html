@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="id">
+
+    </div>
+</body>
+<script>
+
+    function getData(){
+        let xhr = new XMLHttpRequest()
+        xhr.onload = () => {
+            if(xhr.status == 200) {
+                const data = JSON.parse(xhr.responseText)
+                displayData(data)
+            }
+            else {
+                console.log('error');
+            }
+        }    
+        xhr.open('GET','https://jsonplaceholder.typicode.com/posts')
+        xhr.send()
+        }
+    function displayData(data){
+        baris = ''
+        data.forEach(element => {
+            const id = document.getElementById('id')
+            baris += `<tr> <td> ${element.id} <td> ${element.title} <td> ${element.body}`
+            
+        })
+        id.innerHTML =`<table border = 1> ${baris}` 
+    }
+    getData()
+</script>
+</html>
