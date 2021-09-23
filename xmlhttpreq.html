@@ -12,20 +12,38 @@
     <div id="id"></div>
 </body>
 <script>
+
+    /* 
+    function to get data from fakestore api
+    return : none
+    */
     function getData() {
         const url = 'https://jsonplaceholder.typicode.com/posts'
         let xhr = new XMLHttpRequest()
         xhr.onload = () => {
-            let data = JSON.parse(xhr.responseText)
-            displayData(data)
-
+              if(xhr.status == 200){
+                console.log('data ok');
+                let data = JSON.parse(xhr.responseText)
+                displayData(data)
+            }
+            else {
+                console.log('error');
+            }
         }
         xhr.open('GET', url)
         xhr.send()
     }
+    /* 
+    funciton to display data to console 
+    return : none 
+    */
     displayData = data => {
         console.log(data)
     }
+    /* 
+    function to check if data is asnyc by doing callback
+    return : none 
+    */
     cekAsync = () => {
         console.log('Loading Data')
         getData()
