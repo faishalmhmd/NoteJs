@@ -21,7 +21,7 @@
         const url = 'https://jsonplaceholder.typicode.com/posts'
         let xhr = new XMLHttpRequest()
         xhr.onload = () => {
-              if(xhr.status == 200){
+            if (xhr.status == 200) {
                 console.log('data ok');
                 let data = JSON.parse(xhr.responseText)
                 displayData(data)

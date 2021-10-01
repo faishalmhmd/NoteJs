@@ -15,8 +15,10 @@
 </body>
 <script>
 
-    // function to get Data
-    // sekalian nyobain push pake ssh
+    /* 
+    function to get data from fakestore api using xmlhttprequest and display some data to table with function
+    return : none
+     */
     function getData() {
         let xhr = new XMLHttpRequest()
         xhr.onload = () => {
@@ -31,6 +33,10 @@
         xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts')
         xhr.send()
     }
+    /* 
+    fucntion to display data to table from with params from parsing xhr response
+    return : none 
+    */
     function displayData(data) {
         baris = ''
         data.forEach(element => {

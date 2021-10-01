@@ -34,8 +34,20 @@
         xhr.send()
 
     })
+    /* 
+    function to display data to table
+    return : none
+     */
+    const displayData = data => {
+        const id = document.getElementById('id')
+        let table = '<table border=1>'
+        data.forEach(e => {
+            table += `<tr> <td> ${e.title} </td> <td> ${e.category} </td> <td> ${e.description} </td> <td> <img src=${e.image}> </td>`
+        })
+        id.innerHTML = table
+    }
     get
-        .then(response => console.log(response))
+        .then(response => displayData(response))
         .catch(response => console.log(response))
 
 </script>
