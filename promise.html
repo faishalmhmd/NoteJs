@@ -6,14 +6,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        .col-md-4 {
+            margin: 0px 0px;
+        }
+    </style>
 </head>
 
 <body>
-    <div id="id">
+    <div id="id" class="px-md-auto">
+        <div class="row " id='row'>
 
+        </div>
     </div>
-
+    <!-- Modal -->
+    <div class="modal fade" id="data" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
 <script>
     /* 
     function to get data from fakestore api with promise
@@ -39,12 +68,31 @@
     return : none
      */
     const displayData = data => {
-        const id = document.getElementById('id')
-        let table = '<table border=1>'
-        data.forEach(e => {
-            table += `<tr> <td> ${e.title} </td> <td> ${e.category} </td> <td> ${e.description} </td> <td> <img src=${e.image}> </td>`
+        const row = document.getElementById('row')
+        let table = ''
+        data.forEach((e, index) => {
+            table += `
+                    <div class='col-md-3 border border-dark d-flex flex-column align-items-center mx-md-3 my-md-2'>
+                        <img src='${e.image}' class=img-thumbnail width='75px'>
+                        ${index + 1}
+                        <div class='text-center'>
+                            ${e.title}
+                        </div>
+                        <button class='btn btn-primary' data-bs-toggle="modal" data-bs-target="#data"> Info </button>
+                    </div>            
+            `
         })
-        id.innerHTML = table
+        /* 
+        event listner callback
+        */
+        row.innerHTML = table
+        const btn = document.getElementsByClassName('btn')
+        Array.from(btn).forEach((e, index) => {
+            btn[index].addEventListener('click', () => {
+                // alert(index + 1)
+            })
+        })
+
     }
     get
         .then(response => displayData(response))
