@@ -9,19 +9,37 @@
 </head>
 
 <body>
+    <div class="" id='id'>
 
+    </div>
 </body>
 <script>
+
     const url = 'https://jsonplaceholder.typicode.com/todos'
+    /* 
+    function get data form api
+    return : none 
+    */
     async function getData(){
         try {
             const request = await fetch(url)    
             const data = await request.json()
-            console.log(data)
+            displayData(data)
         }
         catch (e){
             console.log(e)
         }
+    }
+    /* 
+    function display data from api to table
+    return : none
+    */
+    function displayData(data){
+        let table = '<table border=1>'
+            data.forEach(e => {
+                table += `<tr> <td> ${e.userId} <td> ${e.id} <td> ${e.title} <td> ${e.completed}`
+                })
+    document.getElementById('id').innerHTML = table
     }
     getData()
 </script>
