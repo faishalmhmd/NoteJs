@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="id">
+
+    </div>
+</body>
+<script src="axios.js"></script>
+<script>
+    const id = document.getElementById('id')
+    /* 
+    async function to get data from api with axios 
+    return: none
+    */
+    const getData = async () => {
+        try {
+            const response = await axios.get('https://jsonplaceholder.typicode.com/todos/')
+            console.log(response.data)
+            displayData(response.data)
+        }
+        catch (e) {
+            console.log(e)
+        }
+    }
+    /* 
+    function to display data from response function
+    return: none
+     */
+    const displayData = data => {
+        let table = '<table border=1>'
+        Array.from(data).forEach(e => {
+            table += `<tr> <td> ${e.id} <td> ${e.title} <td> ${e.completed}`
+        })
+        id.innerHTML = table
+    }
+    getData()
+</script>
+
+</html>
