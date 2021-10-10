@@ -1,0 +1,12 @@
+{
+    "posts": [
+        {
+            "id": 1,
+            "title": "Doge",
+            "coin": "doge coin",
+            "desc": "dogedogedogedoge",
+            "age": 12,
+            "alive": true
+        }
+    ]
+}
