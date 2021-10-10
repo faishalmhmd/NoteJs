@@ -16,15 +16,38 @@
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 <body>
+    <!-- navbar -->
     <nav class="navbar navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="#">
                 <img src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30"
-                    height="24">
+                    height="24" class="d-inline-block align-text-top">
                 Bootstrap
             </a>
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Tambah Data
+            </button>
         </div>
     </nav>
+    <!-- modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Form Data</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- display -->
     <div class="container">
 
         <div id="id" class="row">
@@ -55,9 +78,9 @@
                 <div class="card-body">
                     <h5 class="card-title">${e.title}</h5>
                     <p class="card-text">${e.coin}</p>
-                    <a href="#" class="badge bg-primary text-wrap">Detail</a>
-                    <a href="#" class="badge bg-warning text-wrap">Detail</a>
-                    <a href="#" class="badge bg-danger text-wrap">Detail</a>
+                    <a href="#" class="badge bg-primary text-wrap" data-bs-toggle="modal" data-bs-target="#exampleModal">Detail</a>
+                    <a href="#" class="badge bg-warning text-wrap" data-bs-toggle="modal" data-bs-target="#exampleModal">Update</a>
+                    <a href="#" class="badge bg-danger text-wrap" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</a>
    
                 </div>
             </div>
