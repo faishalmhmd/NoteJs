@@ -40,26 +40,26 @@
                 <div class="modal-body">
                     <form>
                         <div class="mb-2">
-                            <label class="form-label" id="judul">Judul</label>
+                            <label class="form-label">Judul</label>
+                            <input type="text" class="form-control" id="judul">
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label" id="nama-coin">Nama Koin</label>
                             <input type="text" class="form-control">
                         </div>
                         <div class="mb-2">
-                            <label class="form-label">Nama Koin</label>
+                            <label class="form-label" id="deskripsi">Deskripsi</label>
                             <input type="text" class="form-control">
                         </div>
                         <div class="mb-2">
-                            <label class="form-label">Deskripsi</label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="mb-2">
-                            <label class="form-label">Umur</label>
+                            <label class="form-label" id="umur">Umur</label>
                             <input type="text" class="form-control">
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary" id="button" onclick="cek()">Save changes</button>
                 </div>
             </div>
         </div>
@@ -77,6 +77,15 @@
     crossorigin="anonymous"></script>
 <script src="axios.js"></script>
 <script>
+    const judul = document.getElementById('judul').value
+    const coin = document.getAnimations('nama-coin')
+    const deskripsi = document.getElementById('deskripsi')
+    const umut = document.getElementById('umur')
+
+    function cek() {
+        console.log(judul)
+        alert(judul)
+    }
     /* 
     function to get data from fakestore api and displaying data to html with function
     return : none    
