@@ -17,14 +17,15 @@
 
 <body>
     <!-- navbar -->
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar-light bg-secondary">
         <div class="container">
             <a class="navbar-brand" href="#">
                 <img src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30"
-                    height="24" class="d-inline-block align-text-top">
+                    height="24" class="d-inline-block align-text-top ">
                 Bootstrap
             </a>
-            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <button type="button" class="btn btn-success text-bold" data-bs-toggle="modal"
+                data-bs-target="#exampleModal">
                 Tambah Data
             </button>
         </div>
@@ -44,22 +45,22 @@
                             <input type="text" class="form-control" id="judul">
                         </div>
                         <div class="mb-2">
-                            <label class="form-label" id="nama-coin">Nama Koin</label>
-                            <input type="text" class="form-control">
+                            <label class="form-label">Nama Koin</label>
+                            <input type="text" class="form-control" id="nama-coin">
                         </div>
                         <div class="mb-2">
-                            <label class="form-label" id="deskripsi">Deskripsi</label>
-                            <input type="text" class="form-control">
+                            <label class="form-label">Deskripsi</label>
+                            <input type="text" class="form-control" id="desc">
                         </div>
                         <div class="mb-2">
-                            <label class="form-label" id="umur">Umur</label>
-                            <input type="text" class="form-control">
+                            <label class="form-label">Umur</label>
+                            <input type="text" class="form-control" id="umur">
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="button" onclick="cek()">Save changes</button>
+                    <button type="button" class="btn btn-primary" id="button">Save changes</button>
                 </div>
             </div>
         </div>
@@ -77,15 +78,64 @@
     crossorigin="anonymous"></script>
 <script src="axios.js"></script>
 <script>
-    const judul = document.getElementById('judul').value
-    const coin = document.getAnimations('nama-coin')
-    const deskripsi = document.getElementById('deskripsi')
-    const umut = document.getElementById('umur')
+    const button = document.getElementById('button')
 
-    function cek() {
-        console.log(judul)
-        alert(judul)
-    }
+    button.addEventListener('click', click = () => {
+        const judul = document.getElementById('judul').value
+        const coin = document.getElementById('nama-coin').value
+        const desc = document.getElementById('desc').value
+        const umur = document.getElementById('umur').value
+
+        /* 
+        function to check if form is empty
+        return: boolean true
+        */
+        function chekForm() {
+            if (judul == '') {
+                return true
+            }
+
+            if (coin == '') {
+                return true
+            }
+
+            if (desc == '') {
+                return true
+            }
+
+            if (umur == '') {
+                return true
+            }
+        }
+
+        /* 
+        function to post data to api
+        */
+        async function postData() {
+            try {
+                const post = await axios.post('http://127.0.0.1:3000/posts', {
+                    title: judul,
+                    coin: coin,
+                    desc: desc,
+                    umur: parseInt(umur)
+                })
+            }
+            catch (e) {
+                console.log(e)
+            }
+        }
+
+        const valid = chekForm()
+        if (valid == true) {
+            alert('Form tidak boleh kosong')
+        }
+        else {
+            postData()
+        }
+
+    })
+
+
     /* 
     function to get data from fakestore api and displaying data to html with function
     return : none    

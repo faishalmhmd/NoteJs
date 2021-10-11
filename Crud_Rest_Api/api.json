@@ -4,9 +4,14 @@
             "id": 1,
             "title": "Doge",
             "coin": "doge coin",
-            "desc": "dogedogedogedoge",
-            "age": 12,
-            "alive": true
+            "desc": "dogedogedogedoge"
+        },
+        {
+            "title": "Shiba",
+            "coin": "Shiba Coin",
+            "desc": "Koin Anjing",
+            "umur": 20,
+            "id": 2
         }
     ]
 }
