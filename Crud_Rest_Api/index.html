@@ -114,6 +114,21 @@
     crossorigin="anonymous"></script>
 <script src="axios.js"></script>
 <script>
+    async function putData() {
+        try {
+            const post = await axios.put('http://127.0.0.1:3000/posts/2', {
+                title: "asu",
+                coin: "asu",
+                desc: "asu",
+                umur: 12
+            })
+        }
+        catch (e) {
+            console.log(e)
+        }
+    }
+
+
     const button = document.getElementById('button')
 
     button.addEventListener('click', click = () => {

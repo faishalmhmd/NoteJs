@@ -1,17 +1,17 @@
 {
-    "posts": [
-        {
-            "id": 1,
-            "title": "Doge",
-            "coin": "doge coin",
-            "desc": "dogedogedogedoge"
-        },
-        {
-            "title": "Shiba",
-            "coin": "Shiba Coin",
-            "desc": "Koin Anjing",
-            "umur": 20,
-            "id": 2
-        }
-    ]
+  "posts": [
+    {
+      "id": 1,
+      "title": "Doge",
+      "coin": "doge coin",
+      "desc": "dogedogedogedoge"
+    },
+    {
+      "title": "asu",
+      "coin": "asu",
+      "desc": "asu",
+      "umur": 12,
+      "id": 2
+    }
+  ]
 }
