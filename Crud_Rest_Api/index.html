@@ -30,12 +30,48 @@
             </button>
         </div>
     </nav>
+
     <!-- modal tambah Data -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Tambah Data</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-2">
+                            <label class="form-label">Judul</label>
+                            <input type="text" class="form-control" id="judul">
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label">Nama Koin</label>
+                            <input type="text" class="form-control" id="nama-coin">
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label">Deskripsi</label>
+                            <input type="text" class="form-control" id="desc">
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label">Umur</label>
+                            <input type="text" class="form-control" id="umur">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="button">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal detail -->
+    <div class="modal fade" id="DetailModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Detail Data</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -110,6 +146,7 @@
 
         /* 
         function to post data to api
+        return : none
         */
         async function postData() {
             try {
@@ -154,7 +191,7 @@
                 <div class="card-body">
                     <h5 class="card-title">${e.title}</h5>
                     <p class="card-text">${e.coin}</p>
-                    <a href="#" class="badge bg-primary text-wrap" data-bs-toggle="modal" data-bs-target="#exampleModal">Detail</a>
+                    <a href="#" class="badge bg-primary text-wrap" data-bs-toggle="modal" data-bs-target="#DetailModal">Detail</a>
                     <a href="#" class="badge bg-warning text-wrap" data-bs-toggle="modal" data-bs-target="#exampleModal">Update</a>
                     <a href="#" class="badge bg-danger text-wrap" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</a>
    
