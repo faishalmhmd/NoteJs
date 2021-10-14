@@ -22,9 +22,11 @@
 </body>
 <script>
     const button = document.getElementsByClassName('button')
-    const alert = () => alert(`tombol ${index}`)
-    Array.from(button).forEach((e, index) => {
-        e.addEventListener('click', alert)
+    console.log(button)
+    Array.from(button).forEach(e => {
+        e.addEventListener('click', function () {
+            alert('hello ')
+        })
     })
 </script>
 

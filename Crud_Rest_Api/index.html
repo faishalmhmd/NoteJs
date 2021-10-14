@@ -227,23 +227,28 @@
                 <div class="card-body">
                     <h5 class="card-title">${e.title}</h5>
                     <p class="card-text">${e.coin}</p>
-                    <a href="#" class="badge bg-primary text-wrap" data-bs-toggle="modal" data-bs-target="#DetailModal">Detail</a>
-                    <a class="update-data badge bg-warning text-wrap" data-bs-toggle="modal" data-bs-target="#Update-Modal" id="update-modal">Update</a>
-                    <a href="#" class="badge bg-danger text-wrap" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</a>
+                    <a class="badge bg-primary text-wrap" data-bs-toggle="modal" data-bs-target="#DetailModal">Detail</a>
+                    <a class="update badge bg-warning text-wrap">Update</a>
+                    <a class="badge bg-danger text-wrap" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</a>
    
                 </div>
             </div>
 `
+            // data-bs-toggle="modal" data-bs-target="#Update-Modal" 
         })
         id.innerHTML = card
-        const update = document.getElementsByClassName('update-data')
-        update.forEach(e => {
-            update[e].addEventListener('click', () => {
-                console.log('tombol di klik')
+        const update = document.getElementsByClassName('update')
+        console.log(update)
+        Array.from(update).forEach(e => {
+            e.addEventListener('click', function () {
+                alert('hello ')
             })
         })
     }
     getData()
+    //
+
 </script>
+
 
 </html>
