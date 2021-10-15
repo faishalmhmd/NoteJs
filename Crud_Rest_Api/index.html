@@ -228,20 +228,25 @@
                     <h5 class="card-title">${e.title}</h5>
                     <p class="card-text">${e.coin}</p>
                     <a class="badge bg-primary text-wrap" data-bs-toggle="modal" data-bs-target="#DetailModal">Detail</a>
-                    <a class="update badge bg-warning text-wrap">Update</a>
+                    <a class="update badge bg-warning text-wrap"  data-bs-toggle="modal" data-bs-target="#Update-Modal" >Update</a>
                     <a class="badge bg-danger text-wrap" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</a>
    
                 </div>
             </div>
 `
-            // data-bs-toggle="modal" data-bs-target="#Update-Modal" 
+
         })
         id.innerHTML = card
         const update = document.getElementsByClassName('update')
         console.log(update)
-        Array.from(update).forEach(e => {
+        Array.from(update).forEach((e, index) => {
             e.addEventListener('click', function () {
-                alert('hello ')
+                async function getFromIndex() {
+                    const data = await axios.get(`http://127.0.0.1:3000/posts/${index + 1}`)
+                    console.log(data)
+                }
+                getFromIndex()
+
             })
         })
     }
