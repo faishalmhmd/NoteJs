@@ -115,25 +115,25 @@
                     <form>
                         <div class="mb-2">
                             <label class="form-label">Judul</label>
-                            <input type="text" class="form-control" id="judul">
+                            <input type="text" class="form-control" id="update-judul">
                         </div>
                         <div class="mb-2">
                             <label class="form-label">Nama Koin</label>
-                            <input type="text" class="form-control" id="nama-coin">
+                            <input type="text" class="form-control" id="update-koin">
                         </div>
                         <div class="mb-2">
                             <label class="form-label">Deskripsi</label>
-                            <input type="text" class="form-control" id="desc">
+                            <input type="text" class="form-control" id="update-desc">
                         </div>
                         <div class="mb-2">
                             <label class="form-label">Umur</label>
-                            <input type="text" class="form-control" id="umur">
+                            <input type="text" class="form-control" id="update-umur">
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="button">Save changes</button>
+                    <button type="button" class="btn btn-primary" id="button-update">Save changes</button>
                 </div>
             </div>
         </div>
@@ -230,7 +230,6 @@
                     <a class="badge bg-primary text-wrap" data-bs-toggle="modal" data-bs-target="#DetailModal">Detail</a>
                     <a class="update badge bg-warning text-wrap"  data-bs-toggle="modal" data-bs-target="#Update-Modal" >Update</a>
                     <a class="badge bg-danger text-wrap" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</a>
-   
                 </div>
             </div>
 `
@@ -241,10 +240,18 @@
         console.log(update)
         Array.from(update).forEach((e, index) => {
             e.addEventListener('click', function () {
+                /* 
+                function to get data then displaying to form updatte then update
+                return : none
+                */
                 async function getFromIndex() {
                     const data = await axios.get(`http://127.0.0.1:3000/posts/${index + 1}`)
-                    console.log(data)
+                    const judul = document.getElementById('update-judul').value = data.data.title
+                    const coin = document.getElementById('update-koin').value = data.data.coin
+                    const desc = document.getElementById('update-desc').value = data.data.desc
+                    const umur = document.getElementById('update-umur').value = data.data.umur
                 }
+
                 getFromIndex()
 
             })
