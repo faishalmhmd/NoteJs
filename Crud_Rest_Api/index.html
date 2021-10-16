@@ -76,24 +76,6 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
-                        <div class="mb-2">
-                            <label class="form-label">Judul</label>
-                            <input type="text" class="form-control" id="judul">
-                        </div>
-                        <div class="mb-2">
-                            <label class="form-label">Nama Koin</label>
-                            <input type="text" class="form-control" id="nama-coin">
-                        </div>
-                        <div class="mb-2">
-                            <label class="form-label">Deskripsi</label>
-                            <input type="text" class="form-control" id="desc">
-                        </div>
-                        <div class="mb-2">
-                            <label class="form-label">Umur</label>
-                            <input type="text" class="form-control" id="umur">
-                        </div>
-                    </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -102,6 +84,26 @@
             </div>
         </div>
     </div>
+
+    <!-- modal delete -->
+    <div class="modal fade" id="DeleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete Data</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div id="idDelete" hidden></div>
+                <div class="modal-body" id="delete-data">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" id="button" onclick="deleteData()">Delete Data</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <!-- modal update -->
     <div class="modal fade" id="Update-Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -233,15 +235,17 @@
                     <p class="card-text">${e.coin}</p>
                     <a class="badge bg-primary text-wrap" data-bs-toggle="modal" data-bs-target="#DetailModal">Detail</a>
                     <a class="update badge bg-warning text-wrap"  data-bs-toggle="modal" data-bs-target="#Update-Modal" >Update</a>                    
-                    <a class="badge bg-danger text-wrap" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</a>
+                    <a class="delete badge bg-danger text-wrap" data-bs-toggle="modal" data-bs-target="#DeleteModal">Delete</a>
                 </div>
             </div>
 `
 
         })
         id.innerHTML = card
+        /* 
+        button to put data
+        */
         const update = document.getElementsByClassName('update')
-        console.log(update)
         Array.from(update).forEach((e, index) => {
             e.addEventListener('click', function () {
                 /* 
@@ -261,13 +265,28 @@
 
             })
         })
+
+        /* 
+        button to delete data
+        */
+        const DeleteData = document.getElementsByClassName('delete')
+        const textDelete = document.getElementById('delete-data')
+        const idDelete = document.getElementById('idDelete')
+        Array.from(DeleteData).forEach((e, index) => {
+            e.addEventListener('click', function () {
+                textDelete.innerHTML = `anda yakin ingin menghapus dengan id ${index + 1}`
+                idDelete.innerHTML = `${index + 1}`
+            })
+        })
+
+
     }
     getData()
+
     /* 
     function put data to rest api
     return : none
     */
-
     async function updateData() {
         const id = document.getElementById('update-id').value
         const judul = document.getElementById('update-judul').value
@@ -282,6 +301,21 @@
                 desc: desc,
                 umur: parseInt(umur)
             })
+        }
+        catch (e) {
+            console.log(e)
+        }
+    }
+
+    /*
+    function to deleteData from index click
+    return : none
+    */
+    async function deleteData() {
+        const id = document.getElementById('idDelete')
+        console.log(id.innerText)
+        try {
+            axios.delete(`http://127.0.0.1:3000/posts/${id.innerText}`)
         }
         catch (e) {
             console.log(e)
