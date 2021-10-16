@@ -114,6 +114,9 @@
                 <div class="modal-body">
                     <form>
                         <div class="mb-2">
+                            <input type="text" class="form-control" id="update-id" disabled>
+                        </div>
+                        <div class="mb-2">
                             <label class="form-label">Judul</label>
                             <input type="text" class="form-control" id="update-judul">
                         </div>
@@ -247,6 +250,7 @@
                 */
                 async function getFromIndex() {
                     const data = await axios.get(`http://127.0.0.1:3000/posts/${index + 1}`)
+                    const id = document.getElementById('update-id').value = data.data.id
                     const judul = document.getElementById('update-judul').value = data.data.title
                     const coin = document.getElementById('update-koin').value = data.data.coin
                     const desc = document.getElementById('update-desc').value = data.data.desc
@@ -260,8 +264,19 @@
     }
     getData()
     //
-    function updateData() {
-        alert('tombol save di klik')
+    async function updateData() {
+        const judul = document.getElementById('update-judul').value
+        const coin = document.getElementById('update-koin').value
+        const desc = document.getElementById('update-desc').value
+        const umur = document.getElementById('update-umur').value
+
+        try {
+            axios.post()
+        }
+        catch {
+
+        }
+        alert(judul + coin + desc + umur)
     }
 
 </script>
