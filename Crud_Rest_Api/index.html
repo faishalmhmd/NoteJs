@@ -133,7 +133,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="button-update">Save changes</button>
+                    <button type="button" class="btn btn-primary" id="button-update" onclick="updateData()">Save
+                        changes</button>
                 </div>
             </div>
         </div>
@@ -228,7 +229,7 @@
                     <h5 class="card-title">${e.title}</h5>
                     <p class="card-text">${e.coin}</p>
                     <a class="badge bg-primary text-wrap" data-bs-toggle="modal" data-bs-target="#DetailModal">Detail</a>
-                    <a class="update badge bg-warning text-wrap"  data-bs-toggle="modal" data-bs-target="#Update-Modal" >Update</a>
+                    <a class="update badge bg-warning text-wrap"  data-bs-toggle="modal" data-bs-target="#Update-Modal" >Update</a>                    
                     <a class="badge bg-danger text-wrap" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</a>
                 </div>
             </div>
@@ -259,6 +260,9 @@
     }
     getData()
     //
+    function updateData() {
+        alert('tombol save di klik')
+    }
 
 </script>
 
