@@ -7,17 +7,17 @@
       "desc": "dogedogedogedoge"
     },
     {
-      "title": "aa",
-      "coin": "aa",
-      "desc": "aa",
-      "umur": null,
+      "title": "NFT",
+      "coin": "NFT",
+      "desc": "NFT",
+      "umur": 2,
       "id": 2
     },
     {
-      "title": "aa",
-      "coin": "aa",
-      "desc": "aa",
-      "umur": 2,
+      "title": "Anjing",
+      "coin": "Anjing NFT",
+      "desc": "koin anjing mahal",
+      "umur": 3,
       "id": 3
     },
     {

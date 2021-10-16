@@ -272,12 +272,16 @@
         const umur = document.getElementById('update-umur').value
 
         try {
-            axios.post()
+            axios.put(`http://127.0.0.1:3000/posts/${id}`, {
+                title: judul,
+                coin: coin,
+                desc: desc,
+                umur: parseInt(umur)
+            })
         }
-        catch {
-
+        catch (e) {
+            console.log(e)
         }
-        alert(judul + coin + desc + umur + id)
     }
 
 </script>
