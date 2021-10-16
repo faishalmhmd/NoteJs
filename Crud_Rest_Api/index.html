@@ -265,6 +265,7 @@
     getData()
     //
     async function updateData() {
+        const id = document.getElementById('update-id').value
         const judul = document.getElementById('update-judul').value
         const coin = document.getElementById('update-koin').value
         const desc = document.getElementById('update-desc').value
@@ -276,7 +277,7 @@
         catch {
 
         }
-        alert(judul + coin + desc + umur)
+        alert(judul + coin + desc + umur + id)
     }
 
 </script>
